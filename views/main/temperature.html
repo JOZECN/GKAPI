@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>temperature-GKApi</title>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/jquery.timers-1.2.js"></script>
+    <style type="text/css">
+        .controlValue {
+            outline: none;
+        }
+        .tip {
+            color: #b3b3b3;
+            font-size: 10px;
+            margin: 0;
+            padding: 0;
+        }
+        .imgBlock {
+            max-height: 500px;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="control">
+        控制：<span class="controlName">{{data.control}}</span>
+    </div>
+    <br>
+    <div>
+        控制：<input class="controlValue" type="text" placeholder="请输入control参数"><input class="controlSubmit" type="button" value="提交">
+        <p class="tip">*若输入为空则control赋值为空</p>
+    </div>
+    <div>
+        上传：<input class="img" type="file" accept="image/*">
+        <input class="imgUpload" type="button" value="提交">
+    </div>
+    <div>
+        <img class="imgBlock" src="{{data.imgUrl}}" alt="default">
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $('body').everyTime('1s',function(){
+                $.ajax({
+                    url: '/api/temperatureCheck',
+                    data: null,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (response) {
+                        $('.controlName').text(response.data.control)
+                    }
+                });
+            },1);
+            $('.controlSubmit').click(function(){
+                $.ajax({
+                    type: 'post',
+                    url: '/api/temperatureCheck',
+                    data: {
+                        control: $.trim($('.controlValue').val())
+                    },
+                    dataType: 'json',
+                    success: function () {
+                        alert('success!');
+                        $('.controlName').text(response.data.control)
+                    }
+                })
+            });
+            $('.imgUpload').click(function(){
+                var file = $('.img')[0].files[0];
+                if(file == null){
+                    return;
+                }
+                var formData = new FormData();
+                formData.append("file", file);
+                $.ajax({
+                    type: 'post',
+                    url: '/api/uploadImg',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        $('.imgBlock').attr('src', window.location.protocol + '//' + window.location.host + res)
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+</html>
