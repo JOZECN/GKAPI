@@ -460,3 +460,32 @@
 2018-02-22T19:41:27.562+0800 I NETWORK  [conn83] received client metadata from 127.0.0.1:53233 conn83: { driver: { name: "nodejs", version: "3.0.2" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.3.0" }, platform: "Node.js v8.9.0, LE, mongodb-core: 3.0.2" }
 2018-02-24T10:23:09.509+0800 I -        [conn83] end connection 127.0.0.1:53233 (1 connection now open)
 2018-02-28T19:01:40.920+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 314ms
+2018-04-06T10:09:45.287+0800 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3641 port=27017 dbpath=/Users/zgs/Desktop/JOZECN/GKTest/mongodb/bin/../data 64-bit host=ZGSdeMBP.lan
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] db version v3.4.6
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] git version: c55eb86ef46ee7aede3b1e2a5d184a7df4bfb5b5
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] allocator: system
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] modules: none
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten] build environment:
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2018-04-06T10:09:45.347+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-04-06T10:09:45.348+0800 I CONTROL  [initandlisten] options: { config: "mongodb.conf", net: { port: 27017 }, processManagement: { fork: true }, storage: { dbPath: "../data" }, systemLog: { destination: "file", logAppend: true, path: "../logs/mongo.log" } }
+2018-04-06T10:09:45.348+0800 W -        [initandlisten] Detected unclean shutdown - /Users/zgs/Desktop/JOZECN/GKTest/mongodb/bin/../data/mongod.lock is not empty.
+2018-04-06T10:09:45.349+0800 I -        [initandlisten] Detected data files in /Users/zgs/Desktop/JOZECN/GKTest/mongodb/bin/../data created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-04-06T10:09:45.349+0800 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2018-04-06T10:09:45.349+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3584M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2018-04-06T10:09:45.754+0800 I CONTROL  [initandlisten] 
+2018-04-06T10:09:45.754+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-04-06T10:09:45.754+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-04-06T10:09:45.754+0800 I CONTROL  [initandlisten] 
+2018-04-06T10:09:45.767+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/Users/zgs/Desktop/JOZECN/GKTest/mongodb/bin/../data/diagnostic.data'
+2018-04-06T10:09:45.767+0800 I NETWORK  [thread1] waiting for connections on port 27017
+2018-04-06T10:09:46.005+0800 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2018-04-06T10:10:38.056+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:56437 #1 (1 connection now open)
+2018-04-06T10:10:38.063+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:56437 conn1: { driver: { name: "nodejs", version: "3.0.2" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.9.0, LE, mongodb-core: 3.0.2" }
+2018-04-06T10:17:00.206+0800 I -        [conn1] end connection 127.0.0.1:56437 (1 connection now open)
+2018-04-06T10:17:01.318+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:56511 #2 (1 connection now open)
+2018-04-06T10:17:01.327+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:56511 conn2: { driver: { name: "nodejs", version: "3.0.2" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.9.0, LE, mongodb-core: 3.0.2" }
+2018-04-06T10:18:06.366+0800 I -        [conn2] end connection 127.0.0.1:56511 (1 connection now open)
+2018-04-06T10:18:15.951+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:56668 #3 (1 connection now open)
+2018-04-06T10:18:15.957+0800 I NETWORK  [conn3] received client metadata from 127.0.0.1:56668 conn3: { driver: { name: "nodejs", version: "3.0.2" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.9.0, LE, mongodb-core: 3.0.2" }

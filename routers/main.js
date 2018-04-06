@@ -6,12 +6,11 @@ var Temperature = require('../models/Temperature');
 var responseData = null;
 router.use(function(req,res,next){
     responseData={
-        code: 0,
-        message:'',
         data: {
             control: '',
             imgUrl: ''
-        }
+        },
+        status: 0
     };
     next();
 });
@@ -49,11 +48,27 @@ router.get('/temperature',function(req,res,next){
                 res.render('main/temperature',responseData);
             }else{
                 responseData.data.control = rs[0].control == '' ? '未设定' : rs[0].control;
-                responseData.data.imgUrl = rs[0].imgUrl;
+                responseData.data.imgUrl = rs[0].imgUrl == '' ? '未设定' : rs[0].imgUrl;
                 res.render('main/temperature',responseData);
             }
         })
     }
+});
+
+router.get('/dataTatol',function(req,res,next){
+    Temperature.find().then(function(rs){
+        if(rs == ''){
+            responseData.data.control = '未设定';
+            responseData.data.imgUrl = '';
+            res.json(responseData);
+            return;
+        }else{
+            responseData.data.control = rs[0].control == '' ? '未设定' : rs[0].control;
+            responseData.data.imgUrl = rs[0].imgUrl == '' ? '未设定' : rs[0].imgUrl;
+            res.json(responseData);
+            return;
+        }
+    })
 });
 
 module.exports=router;
